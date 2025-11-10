@@ -1,0 +1,29 @@
+:root{
+    --background-color: aliceblue;
+    --color: #0e0e0f;
+}
+body{
+    background-color: #0e0e0f;
+    color: var(--color);
+    margin: 2rem;
+}
+.container{
+    background-color: var(--background-color);
+    border: var(--color) solid 1px;
+    border-radius: 0.75rem;
+    width: 12.5rem;
+    height: 8rem;
+    padding: 1rem 1.5rem;
+    box-sizing: border-box;
+}
+.list{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 0;
+}
