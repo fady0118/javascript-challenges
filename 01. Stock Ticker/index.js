@@ -1,32 +1,26 @@
-const name = document.getElementById("Name");
-const symbol = document.getElementById("Symbol");
-const price = document.getElementById("Price");
-const time = document.getElementById("Time");
+import { getStockData } from "./fakeStockApi.js";
+
+const nameEl = document.getElementById("Name");
+const symbolEl = document.getElementById("Symbol");
+const priceEl = document.getElementById("Price");
+const timeEl = document.getElementById("Time");
 
 // data array
 let data = [{ name: "QtechAI", data: [], sum: 250 }];
 
-// generate new data
-function getStockData() {
-  let date = new Date();
-  let change = Number((Math.random() * 6 - 3).toFixed(3));
-  console.log("change",change)
-  return {
-    name: "QtechAI",
-    symbol: "QTA",
-    price: change,
-    time: `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
-  };
-}
 // render the data
 function renderStockTicker(stockData) {
-  console.log("inside render", stockData);
   const lastIndex = stockData.data.length - 1;
+  console.log("inside render", stockData.data[lastIndex]);
   // update stock text
-  name.innerHTML = `Name: ${stockData.data[lastIndex].name}`;
-  symbol.innerHTML = `Symbol: ${stockData.data[lastIndex].symbol}`;
-  price.innerHTML = `Price: ${stockData.sum} <span class="percentage">(${(stockData.data[lastIndex].price/stockData.sum*100).toFixed(3)}%)</span>`;
-  time.innerHTML = `Time: ${stockData.data[lastIndex].time}`;
+  let { name, symbol, price, time } = stockData.data[lastIndex];
+  nameEl.innerHTML = `Name: ${name}`;
+  symbolEl.innerHTML = `Symbol: ${symbol}`;
+  priceEl.innerHTML = `Price: ${stockData.sum} <span class="percentage">(${(
+    (stockData.data[lastIndex].price / stockData.sum) *
+    100
+  ).toFixed(3)}%)</span>`;
+  timeEl.innerHTML = `Time: ${time}`;
   // create indicator
   let indicator = document.createElement("span");
   indicator.innerHTML = "arrow_drop_up";
@@ -41,7 +35,7 @@ function renderStockTicker(stockData) {
       indicator.classList.add("grey-arrow");
     }
   }
-  price.appendChild(indicator);
+  priceEl.appendChild(indicator);
 }
 
 // update the data
@@ -49,7 +43,11 @@ function updateData() {
   // filter for QtechAI
   let qTechAIData = data.find((comp) => comp.name === "QtechAI");
   qTechAIData.data.push(getStockData());
-  qTechAIData.sum = Number((qTechAIData.sum + qTechAIData.data[qTechAIData.data.length - 1].price).toFixed(3));
+  qTechAIData.sum = Number(
+    (
+      qTechAIData.sum + qTechAIData.data[qTechAIData.data.length - 1].price
+    ).toFixed(3)
+  );
   console.log(qTechAIData);
   renderStockTicker(qTechAIData);
 }
