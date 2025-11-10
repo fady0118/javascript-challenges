@@ -14,7 +14,7 @@ body{
     background-color: var(--background-color);
     border: var(--color) solid 1px;
     border-radius: 0.75rem;
-    width: 12.5rem;
+    width: fit-content;
     height: 8rem;
     padding: 1rem 1.5rem;
     box-sizing: border-box;
@@ -34,6 +34,9 @@ body{
     display: flex;
     height: 1.25rem;
     align-items: center;
+}
+.percentage{
+    font-size: 0.8rem;
 }
 .green-arrow{
     /* transform: rotate(-90deg); */
