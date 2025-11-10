@@ -30,3 +30,20 @@ body{
     align-items: flex-start;
     padding: 0;
 }
+.item{
+    display: flex;
+    height: 1.25rem;
+    align-items: center;
+}
+.green-arrow{
+    /* transform: rotate(-90deg); */
+    color: green;
+}
+.red-arrow{
+    transform: rotate(180deg);
+    color: red;
+}
+.grey-arrow{
+    transform: rotate(90deg);
+    color: rgb(92, 92, 92);
+}
