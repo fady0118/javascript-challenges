@@ -6,6 +6,9 @@ body{
     background-color: #0e0e0f;
     color: var(--color);
     margin: 2rem;
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.9rem;
+    font-weight: 400;
 }
 .container{
     background-color: var(--background-color);

@@ -3,6 +3,8 @@ const symbol = document.getElementById('Symbol');
 const price = document.getElementById('Price');
 const time = document.getElementById('Time');
 // .toString().padStart(2)
+let data = [{name:'QtechAI',data:[]}]
+
 function getStockData(){
     let date = new Date();
     return {
@@ -13,11 +15,18 @@ function getStockData(){
     }
 }
 function renderStockTicker(stockData){
-    name.textContent = `Name: ${stockData.name}`;
-    symbol.textContent = `Symbol: ${stockData.symbol}`;
-    price.textContent = `Price: ${stockData.price}`;
-    time.textContent = `Time: ${stockData.time}`;
+    const lastIndex = stockData.data.length-1;
+    let changeIndicator = (stockData.data[lastIndex].price>stockData.data[lastIndex-1].price)?'<':(stockData.data[lastIndex].price<stockData.data[lastIndex-1].price)?'>':'>>';
+    console.log(stockData)
+    
+    name.textContent = `Name: ${stockData.data[lastIndex].name}`;
+    symbol.textContent = `Symbol: ${stockData.data[lastIndex].symbol}`;
+    price.textContent = `Price: ${stockData.data[lastIndex].price} ${changeIndicator}`;
+    time.textContent = `Time: ${stockData.data[lastIndex].time}`;
 }
+
 let update = setInterval(()=>{
-    renderStockTicker(getStockData())
+    let qTechAIData = data.find((comp)=>comp.name === 'QtechAI');
+    qTechAIData.data.push(getStockData());
+    renderStockTicker(qTechAIData)
 },5000)
