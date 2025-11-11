@@ -1,12 +1,43 @@
 :root{
-
+ --background-color: aliceblue;
+ --color: #131214;
 }
 body{
-
+    background-color: var(--background-color);
+    color: var(--color);
+    font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 main{
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
 }
-section{
-    
+section.card{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items:center;
+    gap: 2rem;
+    /* margin: 0 auto; */
+    box-shadow: 0 0 0.5rem #1312147a;
+    border-radius: 0.5rem;
+    width: 45rem;
+    height: 10rem;
+}
+section.card img{
+    height: 100%;
+    text-align: center;
+    /* width: 30%; */
+}
+.card-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+
+}
+.card-right *{
+    margin: 0;
 }
