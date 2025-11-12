@@ -25,11 +25,11 @@ section.card{
     border-radius: 0.5rem;
     width: 45rem;
     height: 10rem;
+        overflow: hidden;
 }
 section.card img{
     height: 100%;
-    text-align: center;
-    /* width: 30%; */
+    object-fit: cover;
 }
 .card-right{
     display: flex;
