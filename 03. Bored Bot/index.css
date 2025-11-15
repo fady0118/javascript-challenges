@@ -1,0 +1,14 @@
+body {
+    font-family: "Viaoda Libre", serif;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container *{
+    font-weight: 600;
+}
+button{
+    font-family: inherit;
+}
