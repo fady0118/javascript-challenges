@@ -22,21 +22,15 @@ async function preloadImages(imageUrlsArr) {
   const imgContainer = document.getElementById("img-container");
   const uploadContainer = document.getElementById("upload-container");
   try {
-    const imagePromise1 = await getImagePromise(imageUrlsArr[0]);
-    const imagePromise2 = await getImagePromise(imageUrlsArr[1]);
-    const imagePromise3 = await getImagePromise(imageUrlsArr[2]);
-    const results = await Promise.all([
-      imagePromise1,
-      imagePromise2,
-      imagePromise3,
-    ]);
+    const promises = imageUrlsArr.map((url) => getImagePromise(url));
+    const results = await Promise.all(promises);
     console.log("All images loaded successfully!");
-    uploadContainer.setAttribute('style','display:none');
-    results.forEach(result=>{
-        imgContainer.append(result);
-    })
+    uploadContainer.setAttribute("style", "display:none");
+    results.forEach((result) => {
+      imgContainer.append(result);
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
 
