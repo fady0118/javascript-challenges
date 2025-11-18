@@ -25,6 +25,7 @@ main {
 }
 .yellow {
     background-color: #ffff00;
+    color: #ffa500;
 }
 .green {
     background-color: #129a0d;
@@ -32,7 +33,7 @@ main {
 }
 .blue {
     background-color: #0000ff;
-    color: #f0d86c;
+    color: #3c2bab;
 }
 .purple {
     background-color: #800080;
