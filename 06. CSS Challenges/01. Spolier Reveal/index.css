@@ -1,0 +1,45 @@
+:root {
+    --bColor: #121212;
+    --fColor: #e7f3fe;
+    --gradient-1:#f35d2b;
+    --gradient-2:#4e2b71;
+}
+
+body {
+    background-color: var(--bColor);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.container {
+    width: 100%;
+    padding: 5rem 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.codeButton {
+    font-family: inherit;
+    text-transform: capitalize;
+    font-weight: 200;
+    letter-spacing: -0.15rem;
+    padding: 2rem 3rem;
+    margin: 0 auto;
+    font-size: 2rem;
+    background-color: var(--bColor);
+    color: var(--fColor);
+    position: relative;
+    border: none;
+
+}
+.codeButton::before{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: -0.1rem;
+    background:linear-gradient(90deg,var(--gradient-1),var(--gradient-2)) ;
+    transition: all 1s ease;
+}
+.codeButton:hover::before{
+    inset: -0.2rem;
+    background:linear-gradient(90deg,var(--gradient-2),var(--gradient-1)) ;
+}
