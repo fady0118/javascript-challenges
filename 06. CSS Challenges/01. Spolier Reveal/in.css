@@ -28,9 +28,8 @@ body {
     background-color: var(--bColor);
     color: var(--fColor);
     position: relative;
-    border: solid 1px rgba(255, 32, 99, 0.59);
-    transition: all linear 0.3s;
-
+    border: none;
+    cursor: pointer;
 }
 
 @property --angle {
@@ -39,41 +38,33 @@ body {
     inherits: false;
 }
 
+/* Outer border (largest layer) */
 .codeButton::before {
     content: '';
     position: absolute;
     z-index: -1;
-    inset: -0.25rem;
-    background-image: conic-gradient(from var(--angle), transparent 90%, #ee3f5f);
+    inset: -0.5rem;
+    background-image: conic-gradient(from var(--angle), transparent 90%, red);
     animation: move-border 3s linear infinite;
-    transition: all linear 0.3s;
 }
 
+/* Middle dark separator + Inner border combined */
 .codeButton::after {
     content: '';
     position: absolute;
     z-index: -1;
-    inset: -0.25rem;
-    background-image: conic-gradient(from var(--angle), transparent 70%, #ee3f5f);
+    inset: -0.3rem;
+    background: var(--bColor);
     animation: move-border 3s linear infinite;
-    transition: all linear 0.3s;
-    filter: blur(0.5rem);
 }
 
-.codeButton:hover {
-    border: none;
-}
-
-.codeButton:hover::before {
-
-    background-image: conic-gradient(from var(--angle), #ee3f5f, #121212, aliceblue, #121212, #ee3f5f);
-    animation: move-border 2s linear infinite;
-}
-
-.codeButton:hover::after {
-    background-image: conic-gradient(from var(--angle), #ee3f5f, #121212, aliceblue, #121212, #ee3f5f);
-    animation: move-border 2s linear infinite;
-    filter: blur(0.5rem);
+/* Inner border on top of separator */
+.codeButton {
+    border: 0.1rem solid transparent;
+    background:
+        linear-gradient(var(--bColor), var(--bColor)) padding-box,
+        conic-gradient(from calc(var(--angle) + 180deg), transparent 90%, blue) border-box;
+    animation: move-border 3s linear infinite;
 }
 
 @keyframes move-border {
@@ -84,4 +75,12 @@ body {
     100% {
         --angle: 360deg;
     }
+}
+
+.codeButton:hover::before {
+    inset: -0.6rem;
+}
+
+.codeButton:hover::after {
+    inset: -0.35rem;
 }
