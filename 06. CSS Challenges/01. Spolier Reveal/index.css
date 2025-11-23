@@ -65,13 +65,12 @@ body {
 }
 
 .codeButton:hover::before {
-
-    background-image: conic-gradient(from var(--angle), #ee3f5f, #121212, aliceblue, #121212, #ee3f5f);
+    background-image: conic-gradient(from var(--angle), var(--gradient-1), #121212, var(--gradient-2), #121212, var(--gradient-1));
     animation: move-border 2s linear infinite;
 }
 
 .codeButton:hover::after {
-    background-image: conic-gradient(from var(--angle), #ee3f5f, #121212, aliceblue, #121212, #ee3f5f);
+    background-image: conic-gradient(from var(--angle), var(--gradient-1), #121212, var(--gradient-2), #121212, var(--gradient-1));
     animation: move-border 2s linear infinite;
     filter: blur(0.5rem);
 }
