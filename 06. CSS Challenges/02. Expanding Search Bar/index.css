@@ -1,17 +1,21 @@
-:root{
-    --bg-color:#121214;
-    --b-color:#686873;
-    --search-width:12rem;
+:root {
+    --bg-color: #121214;
+    --b-color: #686873;
+    --search-width: 12rem;
 }
+
 .searchDiv:has(#search_bar:focus) {
     --search-width: 20rem;
 }
-body{
+
+body {
     background-color: var(--bg-color);
     color: aliceblue;
     padding: 1rem;
 }
-.searchDiv{
+
+.searchDiv {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -19,16 +23,19 @@ body{
     background-color: inherit;
     width: calc(var(--search-width) *1.1 + 0.5rem);
     gap: calc(0.05 * var(--search-width));
-    color: inherit;border: solid 0.1rem var(--b-color);
+    color: inherit;
+    border: solid 0.1rem var(--b-color);
     padding: 0.5rem 0.75rem;
     border-radius: 2rem;
     transition: all ease-in-out 0.25s;
 }
-.icon{
+
+.icon {
     color: inherit;
     font-size: 1rem;
 }
-#search_bar{
+
+#search_bar {
     width: var(--search-width);
     background-color: inherit;
     border: none;
@@ -36,6 +43,47 @@ body{
     font-size: 1rem;
     transition: all ease-in-out 0.25s;
 }
+
 #search_bar:focus {
-  outline: none;
+    outline: none;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.searchDiv::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: -0.2rem;
+    border-radius: 2rem;
+
+}
+
+.searchDiv::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: -0.2rem;
+    border-radius: 2rem;
+    filter: blur(0.5rem);
+}
+
+.searchDiv:has(#search_bar:focus)::before,
+.searchDiv:has(#search_bar:focus)::after {
+    background: conic-gradient(from var(--angle), transparent 80%, #c788ff);
+    animation: border-animation 2.5s infinite linear;
+}
+
+@keyframes border-animation {
+    0% {
+        --angle: 0deg;
+    }
+
+    100% {
+        --angle: 360deg;
+    }
 }
