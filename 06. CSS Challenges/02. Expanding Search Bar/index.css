@@ -87,3 +87,7 @@ body {
         --angle: 360deg;
     }
 }
+
+#search_bar:focus::placeholder{
+    color: transparent;
+}
