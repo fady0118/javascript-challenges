@@ -1,0 +1,11 @@
+:root {
+    --bg-color: #121214;
+    --color: aliceblue;
+}
+
+
+body {
+    background-color: var(--bg-color);
+    color: var(--color);
+    padding: 1rem;
+}
