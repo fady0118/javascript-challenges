@@ -14,9 +14,12 @@ body{
     padding: 0.5rem 1rem;
 }
 .LoadingBox{
+    position: relative;
     width: 32%;
     aspect-ratio: 1 / 1;
     border-radius: 1rem;
-    background-color: #1a1a1e;
+    background-color: #141419;
+    box-shadow: 0 0 1rem #0e0e10;
     margin: 0.5rem 0;
+    z-index: 0;
 }
