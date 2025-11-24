@@ -1,0 +1,22 @@
+:root{
+    --bColor:#0e0e10;
+}
+body{
+    background-color: var(--bColor);
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90%;
+    margin: 1rem auto;
+    flex-wrap: wrap;
+    padding: 0.5rem 1rem;
+}
+.LoadingBox{
+    width: 32%;
+    aspect-ratio: 1 / 1;
+    border-radius: 1rem;
+    background-color: #1a1a1e;
+    margin: 0.5rem 0;
+}
