@@ -1,0 +1,41 @@
+:root{
+    --bg-color:#121214;
+    --b-color:#686873;
+    --search-width:12rem;
+}
+.searchDiv:has(#search_bar:focus) {
+    --search-width: 20rem;
+}
+body{
+    background-color: var(--bg-color);
+    color: aliceblue;
+    padding: 1rem;
+}
+.searchDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: inherit;
+    width: calc(var(--search-width) *1.1 + 0.5rem);
+    gap: calc(0.05 * var(--search-width));
+    color: inherit;border: solid 0.1rem var(--b-color);
+    padding: 0.5rem 0.75rem;
+    border-radius: 2rem;
+    transition: all ease-in-out 0.25s;
+}
+.icon{
+    color: inherit;
+    font-size: 1rem;
+}
+#search_bar{
+    width: var(--search-width);
+    background-color: inherit;
+    border: none;
+    color: inherit;
+    font-size: 1rem;
+    transition: all ease-in-out 0.25s;
+}
+#search_bar:focus {
+  outline: none;
+}
