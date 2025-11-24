@@ -1,11 +1,171 @@
 :root {
     --bg-color: #121214;
-    --color: aliceblue;
+    --color: #c7d5e1;
+    --inset: 0.7rem;
+    font-size: 1.25rem;
 }
-
 
 body {
     background-color: var(--bg-color);
     color: var(--color);
     padding: 1rem;
+    font-family: "Lato", sans-serif;
+}
+
+.tileContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    gap: 0.5rem;
+    width: 20rem;
+    border-radius: 0.5rem;
+    margin: 0 auto;
+}
+
+.tileContainer::before {
+    content: '';
+    position: absolute;
+    top: calc(1 * var(--inset));
+    left: calc(1.5 * var(--inset));
+    right: calc(-1 * var(--inset));
+    bottom: calc(-0.25 * var(--inset));
+    z-index: -1;
+    border-radius: 0.5rem;
+    background-color: #2a2a33;
+    transition: all 0.25s ease-in-out;
+}
+
+.tileContainer:hover::before {
+    top: calc(-1 * var(--inset));
+    left: calc(-1 * var(--inset));
+    right: calc(-1 * var(--inset));
+    bottom: calc(-0.5 * var(--inset));
+}
+
+.tileContainer>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 0.5rem;
+}
+
+.optionsIcon {
+    font-size: 1.5rem;
+    margin: 0.25rem;
+    color: var(--color);
+
+}
+.optionsIcon:hover{
+    cursor: pointer;
+    color: aliceblue;
+}
+.userData {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.userData>img {
+    width: 25%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.title_n_name {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.title,
+.name {
+    margin: 0.1rem 0;
+}
+.title:hover,
+.name:hover{
+    cursor: pointer;
+    color: aliceblue;
+}
+.title {
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.name {
+    font-size: 0.6rem;
+    font-weight: 300;
+}
+
+.tileData {
+    display: flex;
+    flex-direction: row;
+
+    padding: 0 0.5rem;
+    transition: all 0.25s ease-in;
+    max-height: 0;
+}
+
+.likes,
+.replies,
+.views {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.25rem;
+    align-items: center;
+    width: fit-content;
+    font-size: 0.5rem;
+    background-color: #9191a17a;
+    padding: 0.3rem;
+    border-radius: 0.25rem;
+    margin: 0 0.25rem 0 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5px);
+    transition: opacity 0.25s ease-in,
+    visibility 0.25s ease-in,
+    transform 0.25s ease-in;
+    cursor: pointer;
+}
+.likes:hover,
+.replies:hover,
+.views:hover {
+    background-color: #9191a1b8;
+}
+.tileContainer:hover .tileData {
+    max-height: 1.2rem;
+}
+
+.tileContainer:hover .likes,
+.tileContainer:hover .replies,
+.tileContainer:hover .views {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.tileContainer:hover .likes {
+    transition-delay: 0.1s;
+}
+
+.tileContainer:hover .replies {
+    transition-delay: 0.2s;
+}
+
+.tileContainer:hover .views {
+    transition-delay: 0.3s;
 }
