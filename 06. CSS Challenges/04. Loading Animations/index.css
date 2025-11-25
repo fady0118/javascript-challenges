@@ -1,10 +1,12 @@
-:root{
-    --bColor:#0e0e10;
+:root {
+    --bColor: #0e0e10;
 }
-body{
+
+body {
     background-color: var(--bColor);
 }
-.container{
+
+.container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -13,7 +15,8 @@ body{
     flex-wrap: wrap;
     padding: 0.5rem 1rem;
 }
-.LoadingBox{
+
+.LoadingBox {
     position: relative;
     width: 32%;
     aspect-ratio: 1 / 1;
