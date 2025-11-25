@@ -1,0 +1,45 @@
+:root {
+    --bColor: #0e0e10;
+}
+
+body {
+    background-color: var(--bColor);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: calc(25rem + 25%);
+    margin: 1rem auto;
+    padding: 0.5rem 1rem;
+}
+
+.switchLabel {
+    display: flex;
+    align-items: center;
+    width: 3rem;
+    aspect-ratio: 2/1;
+    border: solid 1px aliceblue;
+    border-radius: 5rem;
+    padding: 0 0.25rem;
+    background-color: transparent;
+
+}
+
+.toggle {
+    width: 1rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: aliceblue;
+    pointer-events: none;
+    transition: all 0.25s ease;
+}
+
+#switchBox {
+    display: none;
+}
+
+#switchBox:checked+.toggle {
+    transform: translateX(2rem);
+}
