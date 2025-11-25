@@ -1,0 +1,42 @@
+:root{
+    --box-size:1.5rem;
+}
+.squareWrapper {
+    width: calc(3.75 * var(--box-size));
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.square {
+    width: var(--box-size);
+    aspect-ratio: 1/1;
+    transform: translateY(calc(-0.5 * var(--box-size)));
+    animation: loadAnimation 1.5s ease-in-out infinite;
+}
+
+.square:nth-of-type(1) {
+    background-color: aliceblue;
+    animation-delay: 0.5s;
+}
+
+.square:nth-of-type(2) {
+    background-color: blue;
+    animation-delay: 0.25s;
+}
+
+.square:nth-of-type(3) {
+    background-color: red;
+    animation-delay: 0s;
+}
+
+@keyframes loadAnimation {
+    0%,100%{
+        transform: translateY(calc(-0.25 * var(--box-size)));
+    }
+    50%{
+        transform: translateY(calc(0.25 * var(--box-size)));
+    }
+}
