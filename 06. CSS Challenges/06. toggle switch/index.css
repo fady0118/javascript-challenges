@@ -1,5 +1,6 @@
 :root {
     --bColor: #0e0e10;
+    --size:5rem;
 }
 
 body {
@@ -8,27 +9,31 @@ body {
 
 .container {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: calc(25rem + 25%);
-    margin: 1rem auto;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: calc(2 * var(--size));
+    aspect-ratio: 1/1;
+    margin: var(--size) auto;
+    border-radius: calc(0.1*var(--size));
     padding: 0.5rem 1rem;
+    background-color: rgb(21, 21, 22);
 }
 
 .switchLabel {
     display: flex;
     align-items: center;
-    width: 3rem;
-    aspect-ratio: 2/1;
+    width: var(--size);
+    aspect-ratio: 5/2;
     border: solid 1px aliceblue;
     border-radius: 5rem;
-    padding: 0 0.25rem;
+    padding: 0 calc(0.05 * var(--size));
     background-color: transparent;
-
+    cursor: pointer;
 }
 
 .toggle {
-    width: 1rem;
+    width: calc(0.3*var(--size));
     aspect-ratio: 1/1;
     border-radius: 50%;
     background-color: aliceblue;
@@ -41,5 +46,5 @@ body {
 }
 
 #switchBox:checked+.toggle {
-    transform: translateX(2rem);
+    transform: translateX(calc(0.7 * var(--size)));
 }
