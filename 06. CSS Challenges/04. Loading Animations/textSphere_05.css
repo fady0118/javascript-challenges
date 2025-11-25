@@ -1,0 +1,78 @@
+.sphereWrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+}
+.textSphere{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    color: #f0f8ff;
+    letter-spacing: -0.05rem;
+    background-color: transparent;
+}
+.textSphere::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    filter: brightness(0.9);
+    box-shadow: 0 0.25rem 0.5rem 0 #ffe4f6 inset,
+     0 1rem 1rem 0 #b84eff inset,
+     0 2.25rem 2rem 0 #5922e3 inset;
+    animation: animate-loader 2s infinite linear;
+}
+@keyframes animate-loader {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.text>.letter{
+    opacity: 0.4;
+    animation: glow-letter 1.5s infinite linear;
+}
+.letter:nth-of-type(1){
+    animation-delay: 0s;
+}
+.letter:nth-of-type(2){
+    animation-delay: 0.1s;
+}
+.letter:nth-of-type(3){
+    animation-delay: 0.2s;
+}
+.letter:nth-of-type(4){
+    animation-delay: 0.3s;
+}
+.letter:nth-of-type(5){
+    animation-delay: 0.4s;
+}
+.letter:nth-of-type(6){
+    animation-delay: 0.5s;
+}
+.letter:nth-of-type(7){
+    animation-delay: 0.6s;
+}
+@keyframes glow-letter {
+    0%,
+  100% {
+    opacity: 0.4;
+  }
+  20% {
+    opacity: 1;
+    font-size: 1.025rem;
+  }
+  40% {
+    opacity: 0.7;
+  }
+}
