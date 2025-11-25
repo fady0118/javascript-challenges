@@ -1,0 +1,76 @@
+:root {
+    --box-size: 2rem;
+    --gap: calc(0.1 * var(--box-size));
+}
+
+.rotatingBoxesWrapper {
+    /* width: calc(2.25 * var(--box-size)); */
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap);
+}
+
+.rotatingSquare {
+    width: var(--box-size);
+    aspect-ratio: 1/1;
+    background-color: aliceblue;
+}
+
+.rotatingSquare:nth-of-type(1) {
+    background-color: red;
+    animation: rotateBox1 3s infinite linear;
+}
+.rotatingSquare:nth-of-type(2) {
+    animation: rotateBox2 3s infinite linear;
+}
+
+@keyframes rotateBox1 {
+    0%{
+        transform: translate(0,0);
+    }
+    16.6%{
+        transform: translateX(0) translateY(calc(0.5 * (var(--box-size) + var(--gap))));
+    }
+    33.3%{
+        transform: translateX(calc( (var(--box-size) + var(--gap)) )) translateY(calc(0.5 * (var(--box-size) + var(--gap))));
+    }
+    50%{
+        transform: translateX(calc( (var(--box-size) + var(--gap)) )) translateY(0);
+    }
+    67.6%{
+        transform: translateX(calc( (var(--box-size) + var(--gap)) )) translateY(calc(-0.5 * (var(--box-size) + var(--gap))));
+    }
+    83.3%{
+        transform: translateX(0) translateY(calc(-0.5 * (var(--box-size) + var(--gap))));
+    }
+    100%{
+        transform: translate(0,0);
+    }
+
+}
+@keyframes rotateBox2 {
+    0%{
+        transform: translate(0,0);
+    }
+    16.6%{
+        transform: translateX(0) translateY(calc(-0.5 * (var(--box-size) + var(--gap))));
+    }
+    33.3%{
+        transform: translateX(calc(-1 * (var(--box-size) + var(--gap)) )) translateY(calc(-0.5 * (var(--box-size) + var(--gap))));
+    }
+    50%{
+        transform: translateX(calc(-1 * (var(--box-size) + var(--gap)) )) translateY(0);
+    }
+    67.6%{
+        transform: translateX(calc(-1 * (var(--box-size) + var(--gap)) )) translateY(calc(0.5 * (var(--box-size) + var(--gap))));
+    }
+    83.3%{
+        transform: translateX(0) translateY(calc(0.5 * (var(--box-size) + var(--gap))));
+    }
+    100%{
+        transform: translate(0,0);
+    }
+}
