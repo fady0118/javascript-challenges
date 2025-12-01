@@ -11,12 +11,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
+    box-sizing:  content-box;
     width: calc(2 * var(--size));
     aspect-ratio: 1/1;
     margin: var(--size) auto;
     border-radius: calc(0.1*var(--size));
-    padding: 0.5rem 1rem;
+    padding: 1.5rem 1.5rem;
     background-color: rgb(21, 21, 22);
 }
 
@@ -47,4 +47,5 @@ body {
 
 #switchBox:checked+.toggle {
     transform: translateX(calc(0.7 * var(--size)));
+    background-color: #c92150;
 }
