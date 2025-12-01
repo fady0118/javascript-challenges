@@ -1,3 +1,4 @@
+// 1. Transforming Characters (map/filter challenge)
 const chars = [
   { name: "Lira", level: 3, stamina: 40, role: "scout" },
   { name: "Daro", level: 1, stamina: 10, role: "warrior" },
